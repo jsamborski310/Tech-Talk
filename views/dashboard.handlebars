@@ -15,8 +15,8 @@
       </div>
 
       <div class="form-group">
-        <label for="post-desc">description:</label>
-        <textarea class="form-input" id="post-desc" name="post-desc"></textarea>
+        <label for="post-content">Content:</label>
+        <textarea class="form-input" id="post-content" name="post-content"></textarea>
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Create</button>
@@ -31,11 +31,16 @@
     {{#each posts as |post|}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h4><a href="/dashboard/{{post.id}}">{{post.title}}</a></h4>
+        <h4><a href="/post/{{post.id}}">{{post.title}}</a></h4>
+        <p>{{post.content}}</p>
       </div>
       <div class="col-md-4">
         <button class="btn btn-sm btn-danger" data-id="{{post.id}}">DELETE</button>
       </div>
+
+
+
+
     </div>
     {{/each}}
   </div>
