@@ -16,6 +16,13 @@ router.get('/', async (req, res) => {
 
         const comments = commentData.map((comment) => comment.get({ plain: true }));
 
+        res.render('comments', { 
+          comments, 
+          logged_in: req.session.logged_in 
+        });
+
+
+
     } catch (err) {
         res.status(500).json(err);
     }
@@ -28,7 +35,9 @@ router.post('/', withAuth, async (req, res) => {
   try {
     const newComment = await Comment.create({
       ...req.body,
+      post_comment: req.body.post_comment,
       user_id: req.session.user_id,
+      post_id: req.params.id
     });
 
     res.status(200).json(newComment);

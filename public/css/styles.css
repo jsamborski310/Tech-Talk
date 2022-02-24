@@ -1,0 +1,67 @@
+:root {
+    --theme-color:  #4831D4;
+    --secondary-color: #CCF381;
+}
+a {
+    color:black;
+    text-decoration:none;
+}
+/* HEADINGS */
+h1 {
+    font-weight:900;
+    font-size: 4.5em;
+    text-transform: lowercase;
+}
+h2 {
+    font-weight:900;
+    font-size: 3.5em;
+    text-transform:lowercase;
+}
+h3 {
+    font-weight:500;
+    font-size: 2.5em;
+    text-transform:lowercase;
+}
+h4 {
+    font-weight:900;
+    font-size: 1em;
+}
+h5 {
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing:2px;
+}
+h6 {
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing:0.5px;
+    font-weight:600;
+    font-size:0.8em;
+}
+/* HEADER */
+header {
+    background-color:black;
+}
+header a {
+    color:white;
+}
+header a:hover {
+    color: var(--secondary-color);
+}
+nav {
+    text-transform: uppercase;
+    letter-spacing:2px;
+    font-weight:600;
+    font-size:14px;
+}
+/* BUTTONS */
+.access-buttons {
+    background-color: var(--theme-color);
+    padding: 15px 25px;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+.access-buttons:hover {
+    background-color: var(--secondary-color);
+    color:black;
+}
