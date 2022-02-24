@@ -6,31 +6,32 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
   try {
     const postData = await Post.findAll({
-      attributes: [
-        'id',
-        'title',
-        'date_created',
-        'content'
-      ],
-      include: [
-        {
-        model: Comment,
-        attributes: [
-          'id',
-          'post_comment',
-          'post_id',
-          'user_id',
-          'date_created'],
-          include: {
-            model:User,
-            attributes: ['name']
-          }
-        },
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
+      include: [User],
+      // attributes: [
+      //   'id',
+      //   'title',
+      //   'date_created',
+      //   'content'
+      // ],
+      // include: [
+      //   {
+      //   model: Comment,
+      //   attributes: [
+      //     'id',
+      //     'post_comment',
+      //     'post_id',
+      //     'user_id',
+      //     'date_created'],
+      //     include: {
+      //       model:User,
+      //       attributes: ['name']
+      //     }
+      //   },
+      //   {
+      //     model: User,
+      //     attributes: ['name'],
+      //   },
+      // ],
     });
 
     const posts = postData.map((post) => post.get({ plain: true }));
@@ -49,31 +50,38 @@ router.get('/', async (req, res) => {
 router.get('/post/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
-      attributes: [
-        'id',
-        'title',
-        'date_created',
-        'content'
-      ],
       include: [
+        User,
         {
-        model: Comment,
-        attributes: [
-          'id',
-          'post_comment',
-          'post_id',
-          'user_id',
-          'date_created'],
-          include: {
-            model:User,
-            attributes: ['name']
-          }
-        },
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
+          model: Comment,
+          include: [User],
+        }
+      ]
+      // attributes: [
+      //   'id',
+      //   'title',
+      //   'date_created',
+      //   'content'
+      // ],
+      // include: [
+      //   {
+      //   model: Comment,
+      //   attributes: [
+      //     'id',
+      //     'post_comment',
+      //     'post_id',
+      //     'user_id',
+      //     'date_created'],
+      //     include: {
+      //       model:User,
+      //       attributes: ['name']
+      //     }
+      //   },
+      //   {
+      //     model: User,
+      //     attributes: ['name'],
+      //   },
+      // ],
     });
 
     const post = postData.get({ plain: true });

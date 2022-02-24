@@ -6,7 +6,7 @@ class Comment extends Model {}
 Comment.init(
   {
     post_comment: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false
     // id: {
     //   type: DataTypes.INTEGER,

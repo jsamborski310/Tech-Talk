@@ -16,11 +16,15 @@ router.get('/', async (req, res) => {
 
         const comments = commentData.map((comment) => comment.get({ plain: true }));
 
-        res.render('comments', { 
+        // res.render('comments', { 
+        //   comments, 
+        //   logged_in: req.session.logged_in 
+        // });
+
+        res.render({ 
           comments, 
           logged_in: req.session.logged_in 
         });
-
 
 
     } catch (err) {
@@ -34,9 +38,10 @@ router.get('/', async (req, res) => {
 router.post('/', withAuth, async (req, res) => {
   try {
     const newComment = await Comment.create({
-      ...req.body,
-      post_comment: req.body.post_comment,
+      // ...req.body,
+
       user_id: req.session.user_id,
+      post_comment: req.body.post_comment,
       post_id: req.params.id
     });
 
@@ -45,6 +50,9 @@ router.post('/', withAuth, async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+
+
 
 // DELETE EXISTING COMMENT
 router.delete('/:id', withAuth, async (req, res) => {
