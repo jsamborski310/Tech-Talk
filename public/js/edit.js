@@ -1,12 +1,13 @@
-const newFormHandler = async (event) => {
+const editFormHandler = async (event) => {
     event.preventDefault();
   
-    const title = document.querySelector('#post-title').value.trim();
-    const content = document.querySelector('#post-content').value.trim();
+    const title = document.querySelector('#edit-title').value.trim();
+    const content = document.querySelectorAll('textarea').value.trim();
   
-    if (title && content) {
+    // NEED TO MAKE SURE USER IS LOGGED IN.
+    // if (title && content) {
       const response = await fetch(`/api/posts/${id}`, {
-        method: 'POST',
+        method: 'PUT',
         body: JSON.stringify({ title, content }),
         headers: {
           'Content-Type': 'application/json',
@@ -14,31 +15,13 @@ const newFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/dashboard');
+        document.location.replace(`/dashboard/edit/${id}`);
       } else {
-        alert('Failed to create post');
+        alert('Failed to edit post');
       }
-    }
-  };
-  
-  const editButtonHandler = async (event) => {
-    if (event.target.hasAttribute('data-id')) {
-      const id = event.target.getAttribute('data-id');
-  
-      const response = await fetch(`/api/posts/${id}`, {
-        method: 'PUT',
-      });
-  
-      if (response.ok) {
-        document.location.replace('/post/{{post.id}}');
-      } else {
-        alert('Failed to update post');
-      }
-    }
-  };
-  
-  
+    };
+  // };
   
     document
     .querySelector('.edit-post-form')
-    .addEventListener('submit', editButtonHandler);
+    .addEventListener('submit', editFormHandler);

@@ -1,0 +1,14 @@
+
+{{#each comments as |comment| }}
+<div class="row mb-4 post">
+  <div class="col-md-5">
+    <p>Comment by {{post.username}} on {{format_date post.date_created}}</p>
+  </div>
+  <div class="col-md-7">
+    <p>
+      {{post.post_comment}}
+    </p>
+
+  </div>
+</div>
+{{/each}}
