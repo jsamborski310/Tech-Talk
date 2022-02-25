@@ -200,7 +200,7 @@ router.put('/:id', withAuth, async (req, res) => {
 //         },
 //         {
 //           model: Comment,
-//           attributes: ['name', 'post_comment']
+//           attributes: ['post_comment']
 //         }
 //       ],
 //     });

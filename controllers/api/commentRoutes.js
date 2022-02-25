@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
         //   comments, 
         //   logged_in: req.session.logged_in 
         // });
-
+console.log(comments)
         res.render({ 
           comments, 
           logged_in: req.session.logged_in 
@@ -39,12 +39,14 @@ router.post('/', withAuth, async (req, res) => {
   try {
     const newComment = await Comment.create({
       // ...req.body,
-
-      user_id: req.session.user_id,
       post_comment: req.body.post_comment,
-      post_id: req.params.id
+      // post_id: req.params.id,
+      post_id: req.body.post_id,
+      user_id: req.session.user_id
+ 
     });
 
+  
     res.status(200).json(newComment);
   } catch (err) {
     res.status(400).json(err);
