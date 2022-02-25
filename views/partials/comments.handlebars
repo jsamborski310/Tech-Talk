@@ -2,7 +2,23 @@
 {{#each comments as |comment| }}
 <div class="row mb-4 post">
   <div class="col-md-5">
-    <p>Comment by {{User.name}} on </p>
+
+    <p>
+      <span style="margin-right:20px;">
+        <img class="post-icon" src="/images/nerd-smile.svg" alt="calendar icon"/> {{user.name}}
+      </span>
+      <span style="margin-right:20px;">
+        <img class="post-icon" src="/images/calendar.svg" alt="calendar icon"/> 
+        {{createdAt}}
+        {{date_created}}
+        {{post.date_created}}
+        {{user.date_created}}
+        {{comment.date_created}}
+        {{comment.createdAt}}
+      </span>
+    </p>
+
+
   </div>
   <div class="col-md-7">
     <p>
@@ -13,6 +29,6 @@
 </div>
 {{/each}}
 
-{{!-- {{format_date createdAt}} --}}
+
 
 {{!-- <script src="./js/comment.js"></script> --}}

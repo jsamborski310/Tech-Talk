@@ -5,11 +5,18 @@
     <h2>
       <a href="/post/{{post.id}}">{{post.title}}</a>
     </h2>
-    <p>Created by {{user.name}} on </p>
-    {{!-- {{format_date createdAt}} --}}
+    <p>
+      <span style="margin-right:20px;">
+        <img class="post-icon" src="./images/nerd-smile.svg" alt="calendar icon"/> {{user.name}}
+      </span>
+      <span style="margin-right:20px;">
+        <img class="post-icon" src="./images/calendar.svg" alt="calendar icon"/>{{format_date date_created}}
+      </span>
+    </p>
+    
   </div>
   <div class="col-md-7">
-    <p>
+    <p class="home-post-list">
       {{post.content}}
     </p>
 
@@ -17,4 +24,3 @@
 </div>
 {{/each}}
 
-{{!-- {{format_date date_created}} --}}

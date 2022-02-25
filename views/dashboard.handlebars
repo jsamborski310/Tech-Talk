@@ -30,28 +30,37 @@
 
 {{!-- POSTS --}}
 <!-- Loop over each object in the projects array -->
-{{#each posts as |post| }}
+
 <div class="col-6 col-md-6 col-lg-6 col-sm-12 post">
-  
-      <h6 style="background-color:#4831D4; border-radius:10px;color:white; padding: 15px 0 15px 15px; margin-bottom:30px;">Previous Posts</h6>
- 
-    <h4>
-      <a href="/post/{{post.id}}">{{post.title}}</a>
-    </h4>
-    <p>Created on </p>
-
-
-    <p class="dashboard-post-list" style="padding-bottom:10px;">
-      {{post.content}}
-    </p>
-
-    <hr style="width:80%; margin-top:40px;"/>
 
   
-</div>
+    <h6 style="background-color:#4831D4; border-radius:10px;color:white; padding: 15px 0 15px 15px; margin-bottom:30px;">Previous Posts</h6>
+   
+    <div class="sidebar">
+
+{{#each posts as |post| }}
+
+  <div style="width:90%">
+      <h4>
+        <a href="/post/{{post.id}}">{{post.title}}</a>
+      </h4>
+
+      <p class="dashboard-post-list" style="padding-bottom:10px;">
+        {{post.content}}
+      </p>
+
+      <p><img class="post-icon" src="./images/calendar.svg" alt="calendar icon"/>{{format_date date_created}}</p>
+
+      <hr style="width:80%; margin-top:40px;"/>
+    </div>
+
 {{/each}}
+  </div>
+</div>
+
 
 {{!-- {{format_date post.date_created}} --}}
 
 
 <script src="./js/dashboard.js"></script>
+

@@ -14,7 +14,7 @@ h1 {
 }
 h2 {
     font-weight:900;
-    font-size: 3.5em;
+    font-size: 3.0em;
     text-transform:lowercase;
 }
 h3 {
@@ -37,6 +37,9 @@ h6 {
     letter-spacing:0.5px;
     font-weight:600;
     font-size:0.8em;
+}
+h2 a:hover {
+    color: var(--theme-color);
 }
 /* HEADER */
 header {
@@ -116,6 +119,47 @@ label {
     line-height: 1.4em; /* fallback */
     max-height: 2.8em; /* fallback */
     -webkit-line-clamp:2; /* number of lines to show */
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -ms-box-orient: vertical;
+}
+
+/* POST SIDEBAR */
+.sidebar {
+    max-height:75vh;
+    overflow-y:scroll;
+    overflow-x:hidden;
+}
+.sidebar::-webkit-scrollbar {
+    width: 5px;              /* width of the entire scrollbar */
+}
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;        /* color of the tracking area */
+    width:20px;
+  }
+   
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: black;    /* color of the scroll thumb */
+    border-radius: 10px;       /* roundness of the scroll thumb */
+    border: none;  /* creates padding around scroll thumb */
+    height:20px!important;
+    width:20px;
+  }
+
+.post-icon {
+    width: 20px;
+    height:auto;
+    margin-right:5px;
+    margin-bottom:5px;
+}
+/* HOME */
+.home-post-list {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-height: 1.4em; /* fallback */
+    max-height: 8.4em; /* fallback */
+    -webkit-line-clamp:6; /* number of lines to show */
     -webkit-box-orient: vertical;
     -moz-box-orient: vertical;
     -ms-box-orient: vertical;

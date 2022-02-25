@@ -37,8 +37,8 @@ router.get('/', async (req, res) => {
     const posts = postData.map((post) => post.get({ plain: true }));
 
     res.render('homepage', { 
-      posts, 
-      logged_in: req.session.logged_in 
+      posts
+      // logged_in: req.session.logged_in 
     });
   } catch (err) {
     res.status(500).json(err);
@@ -51,24 +51,28 @@ router.get('/post/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
 
-      include: [
-        {
-          model: Comment,
-          attributes: ['id', "post_comment", "post_id", "user_id"],
-          include: {
-            model: User,
-            attributes: ["name"]
-          }
-        }
-      ]
-      /////////////////////
       // include: [
-      //   User,
       //   {
       //     model: Comment,
-      //     include: [User],
-      //   }
-      // ]
+      //     attributes: ['id', "post_comment", "post_id", "user_id"],
+      //     include: {
+      //       model: User,
+      //       attributes: ['name']
+      //     }
+      //   },
+      //   {
+      //     model: User,
+      //     attributes: ['name'],
+      //   },
+      // ],
+      /////////////////////
+      include: [
+        User,
+        {
+          model: Comment,
+          include: [User],
+        }
+      ],
       /////////////////////////////
       // attributes: [
       //   'id',

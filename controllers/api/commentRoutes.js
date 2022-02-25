@@ -1,37 +1,51 @@
 const router = require('express').Router();
-const { Comment, User } = require('../../models');
+const { Comment, Post, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // GET ALL COMMENTS
 router.get('/', async (req, res) => {
-    try {
-        const commentData = await Comment.findAll({
-            include: [
-                {
-                    model: User,
-                    attributes: ['name'],
-                },
-            ],
-        });
+  try {
+      const commentData = await Comment.findAll({});
 
-        const comments = commentData.map((comment) => comment.get({ plain: true }));
+      const comments = commentData.map((comment) => comment.get({ plain: true }));
 
-        // res.render('comments', { 
-        //   comments, 
-        //   logged_in: req.session.logged_in 
-        // });
-console.log(comments)
-        res.render({ 
-          comments, 
-          logged_in: req.session.logged_in 
-        });
-
-
-    } catch (err) {
-        res.status(500).json(err);
-    }
   
+  } catch (err) {
+      res.status(500).json(err);
+  }
+
 });
+
+
+// router.get('/', async (req, res) => {
+//     try {
+//         const commentData = await Comment.findAll({
+//             include: [
+//                 {
+//                     model: User,
+//                     attributes: ['name'],
+//                 },
+//             ],
+//         });
+
+//         const comments = commentData.map((comment) => comment.get({ plain: true }));
+
+//         // res.render('comments', { 
+//         //   comments, 
+//         //   logged_in: req.session.logged_in 
+//         // });
+// console.log(comments)
+//         res.render({ 
+//           comments, 
+//           logged_in: req.session.logged_in 
+//         });
+
+
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+  
+// });
 
 
 // CREATE NEW COMMENT
@@ -41,7 +55,7 @@ router.post('/', withAuth, async (req, res) => {
       // ...req.body,
       post_comment: req.body.post_comment,
       // post_id: req.params.id,
-      post_id: req.params.post_id,
+      post_id: req.body.post_id,
       user_id: req.session.user_id
  
     });
