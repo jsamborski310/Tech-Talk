@@ -5,19 +5,20 @@ class Comment extends Model {}
 
 Comment.init(
   {
-    post_comment: {
-      type: DataTypes.TEXT,
-      allowNull: false
+    // post_comment: {
+    //   type: DataTypes.TEXT,
+    //   allowNull: false
+    // },
     // id: {
     //   type: DataTypes.INTEGER,
     //   allowNull: false,
     //   primaryKey: true,
     //   autoIncrement: true,
     // },
-    // post_comment: {
-    //   type: DataTypes.TEXT,
-    //   allowNull: false,
-    // },
+    post_comment: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
     // date_created: {
     //   type: DataTypes.DATE,
     //   allowNull: false,
@@ -30,12 +31,12 @@ Comment.init(
     //       key: 'id',
     //     },
     //   },    
-    // post_id: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: 'post',
-    //     key: 'id',
-    //   },
+    post_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'post',
+        key: 'id',
+      },
     },
     },
   {

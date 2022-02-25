@@ -44,6 +44,7 @@ header {
 }
 header a {
     color:white;
+    margin:0 6px;
 }
 header a:hover {
     color: var(--secondary-color);
@@ -53,6 +54,7 @@ nav {
     letter-spacing:2px;
     font-weight:600;
     font-size:14px;
+  
 }
 /* BUTTONS */
 .access-buttons {
@@ -64,4 +66,57 @@ nav {
 .access-buttons:hover {
     background-color: var(--secondary-color);
     color:black;
+}
+.access-buttons-logout {
+    background-color: var(--theme-color);
+    padding: 15px 25px;
+    border-radius: 10px;
+    margin-left: 10px;
+    border:none;   text-transform: uppercase;
+    letter-spacing:2px;
+    font-weight:600;
+    font-size:14px;
+    color: white;
+    
+}
+.access-buttons-logout:hover {
+    background-color: var(--secondary-color);
+    color:black;
+    
+}
+.theme-button {
+    background-color: var(--theme-color);
+    padding: 15px 25px;
+    border-radius: 10px;
+    border:none;   text-transform: uppercase;
+    letter-spacing:2px;
+    font-weight:600;
+    font-size:14px;
+    color: white;
+}
+.theme-button:hover {
+    background-color: var(--secondary-color);
+    color:black;
+}
+/* FORM */
+
+label {
+    display:block;
+}
+.form-input {
+    width:100%;
+    border:2px solid black;
+    border-radius:10px;
+}
+/* DASHBOARD */
+.dashboard-post-list {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-height: 1.4em; /* fallback */
+    max-height: 2.8em; /* fallback */
+    -webkit-line-clamp:2; /* number of lines to show */
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -ms-box-orient: vertical;
 }

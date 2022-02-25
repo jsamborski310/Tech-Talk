@@ -41,7 +41,7 @@ router.post('/', withAuth, async (req, res) => {
       // ...req.body,
       post_comment: req.body.post_comment,
       // post_id: req.params.id,
-      post_id: req.body.post_id,
+      post_id: req.params.post_id,
       user_id: req.session.user_id
  
     });
