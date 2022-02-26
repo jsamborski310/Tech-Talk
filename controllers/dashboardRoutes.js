@@ -93,29 +93,7 @@ router.get("/", withAuth, (req, res) => {
 
 
 
-// EDIT POST
 
-  router.get('/edit/:id', withAuth, async (req, res) => {
-    try {
-      const postData = await Post.findByPk(req.params.id, {
-        include: [
-          {
-            model: User,
-            attributes: ['name'],
-          },
-        ],
-      });
-  
-      const post = postData.get({ plain: true });
-  
-      res.render('edit', {
-        ...post,
-        logged_in: req.session.logged_in
-      });
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
   
 
   // CREATE NEW POST
@@ -131,5 +109,6 @@ router.post('/', withAuth, async (req, res) => {
     res.status(400).json(err);
   }
 });
+
 
   module.exports = router;

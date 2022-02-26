@@ -101,6 +101,22 @@ nav {
     background-color: var(--secondary-color);
     color:black;
 }
+.secondary-button {
+    background-color: var(--secondary-color);
+    padding: 15px 25px;
+    border-radius: 10px;
+    border:none;   text-transform: uppercase;
+    letter-spacing:2px;
+    font-weight:600;
+    font-size:14px;
+    color: black;
+    min-width:120px;
+    text-align: center;
+}
+.secondary-button:hover {
+    background-color: var(--theme-color);
+    color:white;
+}
 /* FORM */
 
 label {
@@ -179,8 +195,7 @@ label {
     padding:40px 40px 20px 40px;
 }
 .comment-user-info {
-    background-color:var(--secondary-color);
-    width:40%;
-    padding:15px 20px 0.5px 20px;
-    border-radius:10px;
+    width:auto;
+    display: inline-block;
+    border-bottom: 5px solid var(--secondary-color);
 }
