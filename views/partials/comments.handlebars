@@ -1,29 +1,23 @@
 
 {{#each comments as |comment| }}
-<div class="row mb-4 post">
-  <div class="col-md-5">
+<div class="row mb-4 post comments" style="margin-top:50px;">
+  <div>
 
-    <p>
-      <span style="margin-right:20px;">
-        <img class="post-icon" src="/images/nerd-smile.svg" alt="calendar icon"/> {{user.name}}
-      </span>
-      <span style="margin-right:20px;">
-        <img class="post-icon" src="/images/calendar.svg" alt="calendar icon"/> 
-        {{createdAt}}
-        {{date_created}}
-        {{post.date_created}}
-        {{user.date_created}}
-        {{comment.date_created}}
-        {{comment.createdAt}}
-      </span>
-    </p>
-
-
-  </div>
-  <div class="col-md-7">
     <p>
       {{post_comment}}
     </p>
+
+    <div class="comment-user-info">
+      <p>
+        <span style="margin-right:20px;">
+          <img class="post-icon" src="/images/nerd-smile.svg" alt="calendar icon"/> {{user.name}}
+        </span>
+        <span style="margin-right:20px;">
+          <img class="post-icon" src="/images/calendar.svg" alt="calendar icon"/> 
+          {{format_date date_created}}      
+        </span>
+      </p>
+    </div>
 
   </div>
 </div>

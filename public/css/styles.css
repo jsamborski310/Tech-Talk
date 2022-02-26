@@ -106,10 +106,18 @@ nav {
 label {
     display:block;
 }
+.form-input-single {
+    width:100%;
+    border:2px solid black;
+    border-radius:10px;
+    height:40px;
+    padding-left:20px;
+}
 .form-input {
     width:100%;
     border:2px solid black;
     border-radius:10px;
+    padding-left:20px;
 }
 /* DASHBOARD */
 .dashboard-post-list {
@@ -163,4 +171,16 @@ label {
     -webkit-box-orient: vertical;
     -moz-box-orient: vertical;
     -ms-box-orient: vertical;
+}
+/* COMMENTS */
+.comments {
+    border:2px solid black;
+    border-radius:20px;
+    padding:40px 40px 20px 40px;
+}
+.comment-user-info {
+    background-color:var(--secondary-color);
+    width:40%;
+    padding:15px 20px 0.5px 20px;
+    border-radius:10px;
 }

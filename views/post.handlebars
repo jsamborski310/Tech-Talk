@@ -1,4 +1,4 @@
-<div>
+<div style="margin-bottom:30px;">
   <h2>{{title}}</h2>
 
   <p>
@@ -11,6 +11,15 @@
   </p>
 
   <p>{{content}}</p>
+
+  <div>
+    <div class="delete-button">
+      <button type="click" class="theme-button" data-id="{{id}}">Delete</button>
+    </div>
+
+
+  </div>
+
 
 </div>
 
@@ -41,3 +50,5 @@
 {{#if logged_in}}
 <script src="/js/comment.js"></script>
 {{/if}}
+
+<script src="/js/delete.js"></script>
