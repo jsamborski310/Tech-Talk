@@ -6,9 +6,6 @@ class Post extends Model {}
 Post.init(
   {
     
-      // title: DataTypes.STRING,
-      // content: DataTypes.TEXT
-    
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,

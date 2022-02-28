@@ -1,6 +1,7 @@
 <div style="margin-bottom:30px;">
   <h2>{{title}}</h2>
 
+  {{!-- Post Meta: User & Date Submitted --}}
   <p>
     <span style="margin-right:20px;">
       <img class="post-icon" src="/images/nerd-smile.svg" alt="calendar icon"/> {{user.name}}
@@ -10,31 +11,37 @@
     </span>
   </p>
 
+  {{!-- Post Content --}}
   <p>{{content}}</p>
 
-{{#if user_id}}
-  <div class="d-flex">
-    <div class="delete-button" style="margin-right:10px;">
-      <button type="click" class="theme-button" data-id="{{id}}">Delete</button>
+  {{!-- Delete & Edit Buttons --}}
+  {{#if logged_in}}
+    <div class="d-flex">
+
+      {{!-- Delete --}}
+      <div class="delete-button" style="margin-right:10px;">
+        <button type="click" class="theme-button" data-id="{{id}}">Delete</button>
+      </div>
+    
+    {{!-- Edit --}}
+      <a href="/post/edit/{{id}}" class="secondary-button">
+        Edit
+      </a>
+
     </div>
-    {{!-- <div class="edit-post-form">
-      <button type="click" class="secondary-button" data-id="{{id}}">Edit</button>
-    </div> --}}
-    <a href="/post/edit/{{id}}" class="secondary-button">
-      Edit
-    </a>
-  </div>
-{{/if}}
+
+  {{/if}}
 
 </div>
 
 
-
-{{#if logged_in}}
-  
+  {{!-- Comment Section --}}
+  {{#if logged_in}}
+    
+    {{!-- Logged in User can submit a comment --}}
     <form class="comment-form" style="padding-top:40px;">
 
-      <div class="form-group">
+      <div class="form-group mb-3">
         <label for="post-comment" class="form-label"><h6>Share Your Thoughts</h6></label>
           <textarea class="form-input" id="post-comment" name="post-comment"></textarea>
       </div>
@@ -43,18 +50,20 @@
       </div>
 
     </form>
-{{else}}
-  <h6>Log in to post a comment.</h6>
 
-{{/if}}
+  {{else}}
+    {{!-- Logged out User will be directed to sign in to leave a comment. --}}
+    <h6>Log in to post a comment.</h6>
+
+  {{/if}}
   
 {{!-- DISPLAYS COMMENTS, IF ANY. --}}
 
-{{>comments}}
+  {{>comments}}
 
-{{#if logged_in}}
-<script src="/js/comment.js"></script>
-{{/if}}
+  {{#if logged_in}}
+    <script src="/js/comment.js"></script>
+  {{/if}}
 
 <script src="/js/delete.js"></script>
-{{!-- <script src="/js/edit.js"></script> --}}
+

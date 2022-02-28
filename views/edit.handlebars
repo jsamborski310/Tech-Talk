@@ -1,9 +1,9 @@
 <div>
-  <h3>Edit Post:</h3>
+  <h1 style="margin-bottom:40px;">Edit Post</h1>
 
   <form class="form edit-post-form">
-    <div class="form-group">
-      <label for="edit-title">Post Title:</label>
+    <div class="form-group mb-3">
+      <label for="edit-title" class="form-label"><h6>Post Title</h6></label>
       <input
         class="form-input"
         type="text"
@@ -13,15 +13,16 @@
       />
     </div>
 
-    <div class="form-group">
-      <label for="edit-content">Content:</label>
+    <div class="form-group mb-3">
+      <label for="edit-content" class="form-label"><h6>Content</h6></label>
       <textarea
         class="form-input"
         id="edit-content"
         name="editContent"
+        rows="6"
       >{{content}}</textarea>
     </div>
-    <div class="form-group">
+    <div class="form-group mb-3">
       <button type="submit" class="theme-button">Update</button>
     </div>
   </form>

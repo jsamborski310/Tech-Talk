@@ -5,16 +5,6 @@ class Comment extends Model {}
 
 Comment.init(
   {
-    // post_comment: {
-    //   type: DataTypes.TEXT,
-    //   allowNull: false
-    // },
-    // id: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false,
-    //   primaryKey: true,
-    //   autoIncrement: true,
-    // },
     post_comment: {
       type: DataTypes.TEXT,
       allowNull: false,
@@ -23,14 +13,7 @@ Comment.init(
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
-    },
-    // user_id: {
-    //     type: DataTypes.INTEGER,
-    //     references: {
-    //       model: 'user',
-    //       key: 'id',
-    //     },
-    //   },    
+    },    
     post_id: {
       type: DataTypes.INTEGER,
       references: {

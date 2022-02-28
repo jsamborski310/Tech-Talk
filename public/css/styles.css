@@ -41,6 +41,7 @@ h6 {
 h2 a:hover {
     color: var(--theme-color);
 }
+
 /* HEADER */
 header {
     background-color:black;
@@ -59,6 +60,7 @@ nav {
     font-size:14px;
   
 }
+
 /* BUTTONS */
 .access-buttons {
     background-color: var(--theme-color);
@@ -117,8 +119,8 @@ nav {
     background-color: var(--theme-color);
     color:white;
 }
-/* FORM */
 
+/* FORM */
 label {
     display:block;
 }
@@ -135,6 +137,7 @@ label {
     border-radius:10px;
     padding-left:20px;
 }
+
 /* DASHBOARD */
 .dashboard-post-list {
     overflow: hidden;

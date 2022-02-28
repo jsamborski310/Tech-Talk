@@ -7,38 +7,12 @@ router.get('/', async (req, res) => {
   try {
     const postData = await Post.findAll({
       include: [User],
-      // attributes: [
-      //   'id',
-      //   'title',
-      //   'date_created',
-      //   'content'
-      // ],
-      // include: [
-      //   {
-      //   model: Comment,
-      //   attributes: [
-      //     'id',
-      //     'post_comment',
-      //     'post_id',
-      //     'user_id',
-      //     'date_created'],
-      //     include: {
-      //       model:User,
-      //       attributes: ['name']
-      //     }
-      //   },
-      //   {
-      //     model: User,
-      //     attributes: ['name'],
-      //   },
-      // ],
     });
 
     const posts = postData.map((post) => post.get({ plain: true }));
 
     res.render('homepage', { 
       posts
-      // logged_in: req.session.logged_in 
     });
   } catch (err) {
     res.status(500).json(err);
@@ -51,21 +25,6 @@ router.get('/post/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
 
-      // include: [
-      //   {
-      //     model: Comment,
-      //     attributes: ['id', "post_comment", "post_id", "user_id"],
-      //     include: {
-      //       model: User,
-      //       attributes: ['name']
-      //     }
-      //   },
-      //   {
-      //     model: User,
-      //     attributes: ['name'],
-      //   },
-      // ],
-      /////////////////////
       include: [
         User,
         {
@@ -74,32 +33,6 @@ router.get('/post/:id', async (req, res) => {
           include: [User],
         }
       ],
-      /////////////////////////////
-      // attributes: [
-      //   'id',
-      //   'title',
-      //   'date_created',
-      //   'content'
-      // ],
-      // include: [
-      //   {
-      //   model: Comment,
-      //   attributes: [
-      //     'id',
-      //     'post_comment',
-      //     'post_id',
-      //     'user_id',
-      //     'date_created'],
-      //     include: {
-      //       model:User,
-      //       attributes: ['name']
-      //     }
-      //   },
-      //   {
-      //     model: User,
-      //     attributes: ['name'],
-      //   },
-      // ],
     });
 
     const post = postData.get({ plain: true });
@@ -114,9 +47,8 @@ router.get('/post/:id', async (req, res) => {
 });
 
 
-// EDIT
-
-router.get('/post/edit/:id', async (req, res) => {
+// EDIT SINGLE POST
+router.get('/post/edit/:id', withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {   
       title: req.body.title,

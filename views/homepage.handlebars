@@ -1,26 +1,40 @@
-<!-- Loop over each object in the projects array -->
-{{#each posts as |post| }}
-<div class="row mb-4 post">
-  <div class="col-md-5">
-    <h2>
-      <a href="/post/{{post.id}}">{{post.title}}</a>
-    </h2>
-    <p>
-      <span style="margin-right:20px;">
-        <img class="post-icon" src="./images/nerd-smile.svg" alt="calendar icon"/> {{user.name}}
-      </span>
-      <span style="margin-right:20px;">
-        <img class="post-icon" src="./images/calendar.svg" alt="calendar icon"/>{{format_date date_created}}
-      </span>
-    </p>
-    
-  </div>
-  <div class="col-md-7">
-    <p class="home-post-list">
-      {{post.content}}
-    </p>
+{{! DISPLAYING ALL POSTS }}
+{{#each posts as |post|}}
+  <div class="row mb-4 post">
+    <div class="col-md-5">
 
+      {{! Post Title }}
+      <h2>
+        <a href="/post/{{post.id}}">{{post.title}}</a>
+      </h2>
+
+      {{! Post Meta: User & Date Submitted }}
+      <p>
+        <span style="margin-right:20px;">
+          <img
+            class="post-icon"
+            src="./images/nerd-smile.svg"
+            alt="calendar icon"
+          />
+          {{user.name}}
+        </span>
+        <span style="margin-right:20px;">
+          <img
+            class="post-icon"
+            src="./images/calendar.svg"
+            alt="calendar icon"
+          />{{format_date date_created}}
+        </span>
+      </p>
+
+    </div>
+
+    {{! Post Content }}
+    <div class="col-md-7">
+      <p class="home-post-list">
+        {{post.content}}
+      </p>
+
+    </div>
   </div>
-</div>
 {{/each}}
-

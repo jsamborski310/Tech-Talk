@@ -9,9 +9,13 @@
 
     <div class="comment-user-info">
       <p style="margin-bottom:0.5rem; margin-top: 30px;">
+
+        {{!-- Name of person that submitted comment. --}}
         <span style="margin-right:20px;">
-          <img class="post-icon" src="/images/nerd-smile.svg" alt="calendar icon"/> {{user.name}}
+          <img class="post-icon" src="/images/nerd-smile.svg" alt="smiling emoji with glasses icon"/> {{user.name}}
         </span>
+
+        {{!-- Date comment submitted. --}}
         <span style="margin-right:20px;">
           <img class="post-icon" src="/images/calendar.svg" alt="calendar icon"/> 
           {{format_date date_created}}      
@@ -23,6 +27,3 @@
 </div>
 {{/each}}
 
-
-
-{{!-- <script src="./js/comment.js"></script> --}}

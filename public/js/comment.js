@@ -1,3 +1,4 @@
+// ADDING A POST COMMENT
 const commentFormHandler = async (event) => {
   event.preventDefault();
 

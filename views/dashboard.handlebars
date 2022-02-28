@@ -1,17 +1,18 @@
+{{!-- DASHBOARD WELCOME --}}
 <div class="row">
   <div>
     <h2>Welcome, {{name}}!</h2>
   </div>
 </div>
 
-{{!-- FORM --}}
+{{!-- SUBMIT TECH POST FORM --}}
 <div class="row mt-4 g-5">
   <div class="col-12 col-md-6 col-lg-6 col-sm-12">
     
     <h6 style="background-color:#CCF381; border-radius:10px;color:black; padding: 15px 0 15px 15px; margin-bottom:30px;">Create a New Tech Post</h6>
     
-
     <form class="new-post-form">
+
       <div class="form-group mb-3">
         <label for="post-title" class="form-label"><h6>Post Title</h6></label>
         <input class="form-input-single" type="text" id="post-title" name="post-title" />
@@ -28,38 +29,31 @@
   </div>
 
 
-{{!-- POSTS --}}
-<!-- Loop over each object in the projects array -->
-
+{{!-- DISPLAYS USER POSTS. --}}
 <div class="col-6 col-md-6 col-lg-6 col-sm-12 post">
 
-  
     <h6 style="background-color:#4831D4; border-radius:10px;color:white; padding: 15px 0 15px 15px; margin-bottom:30px;">Previous Posts</h6>
    
     <div class="sidebar">
 
-{{#each posts as |post| }}
+      {{#each posts as |post| }}
+        <div style="width:90%">
+          <h4>
+            <a href="/post/{{post.id}}">{{post.title}}</a>
+          </h4>
 
-  <div style="width:90%">
-      <h4>
-        <a href="/post/{{post.id}}">{{post.title}}</a>
-      </h4>
+          <p class="dashboard-post-list" style="padding-bottom:10px;">
+            {{post.content}}
+          </p>
 
-      <p class="dashboard-post-list" style="padding-bottom:10px;">
-        {{post.content}}
-      </p>
+          <p><img class="post-icon" src="./images/calendar.svg" alt="calendar icon"/>{{format_date date_created}}</p>
 
-      <p><img class="post-icon" src="./images/calendar.svg" alt="calendar icon"/>{{format_date date_created}}</p>
+          <hr style="width:80%; margin-top:40px;"/>
+        </div>
+      {{/each}}
 
-      <hr style="width:80%; margin-top:40px;"/>
     </div>
-
-{{/each}}
-  </div>
 </div>
-
-
-{{!-- {{format_date post.date_created}} --}}
 
 
 <script src="./js/dashboard.js"></script>

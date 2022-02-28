@@ -1,20 +1,13 @@
+// EDIT POST
 const editFormHandler = async (event) => {
     event.preventDefault();
   
-    // const title = document.querySelector('#edit-title').value.trim();
-    // const content = document.querySelectorAll('textarea').value.trim();
-
     const title = document.querySelector('#edit-title').value.trim();
-    // const content = document.querySelector('textarea[name="editContent"]').value.trim();
-    const content = document.getElementsByName('editContent')[0].value;
-
+    const content = document.getElementsByName('editContent')[0].value;  
     const id = window.location.toString().split('/')[
-      window.location.toString().split('/').length - 1
+      window.location.toString().split('/').length - 1  // Grabs the ID from the URL
     ];
 
-
-    // NEED TO MAKE SURE USER IS LOGGED IN.
-    // if (title && content) {
       const response = await fetch(`/api/posts/${id}`, {
         method: 'PUT',
         body: JSON.stringify({ title, content }),
