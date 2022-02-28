@@ -64,17 +64,17 @@ This application is covered under the MIT license.
 
 Preview screens of the application. 
 
-![Screen shot of homepage, displaying all posts.](/images/homepage.png)
+![Screen shot of homepage, displaying all posts.](./images/homepage.png)
 
-![Screen shot of login and sign up page.](/images/login.png)
+![Screen shot of login and sign up page.](./images/login.png)
 
-![Screen shot of dashboard. Includes create post section and all user posts.](/images/dashboard.png)
+![Screen shot of dashboard. Includes create post section and all user posts.](./images/dashboard.png)
 
-![Screen shot of posts when the user is logged out.](/images/post_loggedOut.png)
+![Screen shot of posts when the user is logged out.](./images/post_loggedOut.png)
 
-![Screen shot of post when user is logged in.](/images/post_loggedIn.png)
+![Screen shot of post when user is logged in.](./images/post_loggedIn.png)
 
-![Screen shot of edit post page.](/images/edit_post.png)
+![Screen shot of edit post page.](./images/edit_post.png)
 
 
 ## Road Bumps
@@ -97,11 +97,14 @@ router.get('/post/:id', async (req, res) => {
     });
 ```
 
-Users are able to delete their own posts. In the single post view, the Delete and Edit buttons are visible exlusively to the post creator. This line of code, included in the homeRoutes, when getting a post by id, works that magic: `const userPost = postData.user_id === req.session.user_id`.  
+Users are able to delete their own posts. In the single post view, the Delete and Edit buttons are visible exlusively to the post creator. This line of code, included in the homeRoutes, when getting a post by id, works that magic: 
+
+`const userPost = postData.user_id === req.session.user_id`.  
 
 ## Preview
 
 GitHub Repo: https://github.com/jsamborski310/Tech-Talk
+
 Heroku: https://js-tech-talk.herokuapp.com/
 
 
