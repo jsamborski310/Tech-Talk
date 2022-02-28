@@ -64,17 +64,17 @@ This application is covered under the MIT license.
 
 Preview screens of the application. 
 
-![Screen shot of homepage, displaying all posts.](./images/homepage.png)
+![Screen shot of homepage, displaying all posts.](/public/images/homepage.png)
 
-![Screen shot of login and sign up page.](./images/login.png)
+![Screen shot of login and sign up page.](public/images/login.png)
 
-![Screen shot of dashboard. Includes create post section and all user posts.](./images/dashboard.png)
+![Screen shot of dashboard. Includes create post section and all user posts.](public/images/dashboard.png)
 
-![Screen shot of posts when the user is logged out.](./images/post_loggedOut.png)
+![Screen shot of posts when the user is logged out.](public/images/post_loggedOut.png)
 
-![Screen shot of post when user is logged in.](./images/post_loggedIn.png)
+![Screen shot of post when user is logged in.](public/images/post_loggedIn.png)
 
-![Screen shot of edit post page.](./images/edit_post.png)
+![Screen shot of edit post page.](public/images/edit_post.png)
 
 
 ## Road Bumps
