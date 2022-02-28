@@ -64,16 +64,22 @@ This application is covered under the MIT license.
 
 Preview screens of the application. 
 
+#### HOMEPAGE
 ![Screen shot of homepage, displaying all posts.](/public/images/homepage.png)
 
+#### LOGIN
 ![Screen shot of login and sign up page.](public/images/login.png)
 
+#### DASHBOARD
 ![Screen shot of dashboard. Includes create post section and all user posts.](public/images/dashboard.png)
 
+#### POSTS (LOGGED OUT)
 ![Screen shot of posts when the user is logged out.](public/images/post_loggedOut.png)
 
+#### POSTS (LOGGED IN)
 ![Screen shot of post when user is logged in.](public/images/post_loggedIn.png)
 
+#### EDIT POST
 ![Screen shot of edit post page.](public/images/edit_post.png)
 
 
