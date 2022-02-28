@@ -30,7 +30,6 @@ The folder structure follows the Model-View-Controller (MVC) paradigm.
   * [Description](#description)
   * [Installation](#installation)
   * [License](#license)
-  * [Usage](#usage)
   * [Road Bumps](#road-bumps)
   * [Preview](#preview)
   * [Questions](#questions)
@@ -60,46 +59,50 @@ Run the following code to install the dependancies:
 
 This application is covered under the MIT license.
 
-## Usage
-
-![Gif of the Employee Tracker in action.](/assets/images/employee-tracker-demo.gif)
-
-This is a command-line application. Once it has been cloned to your local environment, open the application. Run the following commands:
-
-`mysql -u root -p` followed by your password to access MySQL.
-
-`source schema.sql` followed by `source seeds.sql` to source the files. 
-
-Right-click the index.js file and open it in terminal. Run `npm start`. Select an option from the list to get started. After providing an answer for each of the questions, a corresponding table will be displayed. 
-
 
 ### Application Screenshots
 
-Terminal View
+Preview screens of the application. 
 
-![Screen shot of terminal displaying employees table.](/assets/images/view-employees.png)
+![Screen shot of homepage, displaying all posts.](/images/homepage.png)
 
-![Screen shot of terminal displaying roles table.](/assets/images/view-roles.png)
+![Screen shot of login and sign up page.](/images/login.png)
 
-![Screen shot of terminal displaying departments table.](/assets/images/view-departments.png)
+![Screen shot of dashboard. Includes create post section and all user posts.](/images/dashboard.png)
+
+![Screen shot of posts when the user is logged out.](/images/post_loggedOut.png)
+
+![Screen shot of post when user is logged in.](/images/post_loggedIn.png)
+
+![Screen shot of edit post page.](/images/edit_post.png)
 
 
 ## Road Bumps
 
-The following two snippets of code were headache inducing. In both of these instances, both a name and a value were being passed through a variable. The program will fail if the incorrect value is being INSERTED into a table. Before my aha moment (because I had commented out my `throw err` and couldn't figure out what was wrong), the employee name (a string) was being inserted. The column, however, calls for the `manager_id` -> an integer. After adding additional lines of code to grab the ID, the new employee was successfully added to the database. 
+Displaying the comments on the posts was, perhaps, the most significant road bump in creating this application. Configuring the routes correctly was pivotal. When getting the post data, the homeRoutes had to be configured to pull in the Comment model.  
 
-`db.query('INSERT INTO employee (id, first_name, last_name, role_id, manager_id) VALUES (?,?,?,?,?)', [employee.id, employee.first_name, employee.last_name, employee.role_id, managerID],`
+```
+router.get('/post/:id', async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id, {
 
-Same issue here. `employee.id` was pulling through a string and not an integer. MySQL may throw an error if you compare a number with a string. It may look something like this: Truncated incorrect DOUBLE value. This was my first clue that I wasn't passing through the correct data, and a big learning moment. 
+      include: [
+        User,
+        {
+          model: Comment,
+          attributes: ['id', 'post_comment', 'post_id', 'date_created', 'user_id'],
+          include: [User],
+        }
+      ],
+    });
+```
 
-`db.query('UPDATE employee SET role_id = ${employee.role_id} WHERE id = ${employee.id}', `
-
-During the building of this application, I stumbled over many road bumps, but these two ranked high on the list.  
-
+Users are able to delete their own posts. In the single post view, the Delete and Edit buttons are visible exlusively to the post creator. This line of code, included in the homeRoutes, when getting a post by id, works that magic: `const userPost = postData.user_id === req.session.user_id`.  
 
 ## Preview
 
-GitHub Repo: https://github.com/jsamborski310/Employee-Tracker
+GitHub Repo: https://github.com/jsamborski310/Tech-Talk
+Heroku: https://js-tech-talk.herokuapp.com/
 
 
 ## Questions
